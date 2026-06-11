@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Instructors | BEIMNET Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neon-glow-hover:hover {
+            box-shadow: 0 0 15px rgba(127, 212, 32, 0.4);
+            border-color: rgba(127, 212, 32, 0.6);
+        }
+        .grayscale-hover {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+        .grayscale-hover:hover {
+            filter: grayscale(0%);
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "outline": "#8a947d",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "surface-tint": "#87dc2a",
+                        "on-background": "#e5e2e1",
+                        "primary-container": "#7fd420",
+                        "on-tertiary-fixed-variant": "#6d00ad",
+                        "tertiary-fixed": "#f2daff",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "secondary": "#ffade4",
+                        "primary-fixed": "#a1fa48",
+                        "on-secondary-container": "#fff6f8",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#414a36",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed": "#ffd7ef",
+                        "tertiary-fixed-dim": "#e1b6ff",
+                        "on-tertiary": "#4c007b",
+                        "on-secondary": "#5f0050",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#0e2000",
+                        "tertiary-container": "#dcabff",
+                        "on-primary": "#1c3700",
+                        "secondary-fixed-dim": "#ffade4",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#edcfff",
+                        "on-tertiary-container": "#7600ba",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#3a0031",
+                        "on-primary-fixed-variant": "#2b5000",
+                        "inverse-primary": "#3a6a00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#87dc2a",
+                        "primary": "#99f140",
+                        "on-surface-variant": "#c0cab1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#2e004d",
+                        "on-primary-container": "#2f5700",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#860072",
+                        "error-container": "#93000a",
+                        "secondary-container": "#d100b3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer scale-95 active:duration-100" data-icon="menu">menu</span>
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary">B</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Courses</a>
+<a class="font-label-md text-label-md text-primary font-bold transition-colors" href="#">Instructors</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Contact</a>
+</nav>
+<span class="material-symbols-outlined text-primary cursor-pointer scale-95 active:duration-100" data-icon="shopping_bag">shopping_bag</span>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[530px] flex flex-col items-center justify-center text-center px-margin-mobile py-24 overflow-hidden">
+
+<div class="relative z-10 max-w-4xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">Meet the Team</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Learn from certified industry professionals who are shaping the future of African beauty and fashion through technical excellence and creative mentorship.
+                </p>
+</div>
+</section>
+<!-- Instructor Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile py-24">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Sara A. (Makeup) -->
+<div class="glass-card rounded-xl overflow-hidden group transition-all duration-500 neon-glow-hover">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Sara A. - Head of Makeup Artistry" class="w-full h-full object-cover grayscale-hover" data-alt="A professional portrait of a confident female makeup instructor with flawless artistic makeup. She is set against a dark, minimalist studio background with soft neon green rim lighting that highlights her professional silhouette. The style is high-fashion editorial, clean, and sophisticated, reflecting a luxurious Neon Noir aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQJwgKtMHNiSC7e0PORwZ0zO7vY5v0Glo-8Izqa8XB3RRMZMMs6JeEU3ry39ekAdZFZApQYHQcYqgDdfVlJ83loOwQC3MXvAs40pizD9MvJDDqczW30KHfRjNfNJLSUfVtwpvIYPUW2rNhhntGkED-VvQTYRbRfHliirsHt73GX8eyoXF5AQU0fLDC7zyI-ANuAWTgMnsiALB_pvxDTtN7vR9i4nAX-RjVEmJxWkTXN0fnzIJhU5j55cXekRuXTeCFvL2qLSo9WQ"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Sara A.</h3>
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm">Makeup</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            10+ years experience in bridal and editorial makeup. Certified by global beauty standards.
+                        </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110" data-icon="language">language</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+</div>
+<!-- Mimi T. (Hair) -->
+<div class="glass-card rounded-xl overflow-hidden group transition-all duration-500 neon-glow-hover">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Mimi T. - Master Hair Stylist" class="w-full h-full object-cover grayscale-hover" data-alt="A striking portrait of a master hair stylist with intricate, modern braids. The lighting is dramatic and moody, utilizing deep shadows and vibrant magenta backlighting to create a Neon Noir atmosphere. Her expression is focused and professional, set in a sleek, dark high-tech salon environment. The overall feel is one of creative power and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1gEE8xbianhOaLyDuV9GB1xHT1Cf1mCt_1lVixIq36mu9Mfp85TbIP2O0wM86d3HeecgBDa3sPqapr8J-eRznckdkwsP0b6083ruEr28qcIQCPodq5ofgAMi51daLIJikhPtGdXNTzW6HqkG-EwlBi63BJRl3rmDo7KrqiTTh8KT4jpKx-0EqqQSIEuUqSq6i_uEaWoteZ8VKLK55xurh5i-2ojj970KrKzHqSlhRwZPUZR55sUqM4fOP4SRqufmWqbKLWLvYNg"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Mimi T.</h3>
+<span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Hair</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Specializing in contemporary braiding and structural hair design for modern artists.
+                        </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:scale-110" data-icon="history_edu">history_edu</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:scale-110" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+</div>
+<!-- Helen B. (Nail/Lash) -->
+<div class="glass-card rounded-xl overflow-hidden group transition-all duration-500 neon-glow-hover">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Helen B. - Nail and Lash Specialist" class="w-full h-full object-cover grayscale-hover" data-alt="A close-up artistic portrait of a beauty professional specializing in nails and lashes. She has a polished, minimalist aesthetic with clean skin and sharp, modern features. The lighting is crisp and surgical yet atmospheric, with subtle purple neon highlights reflecting off glossy surfaces in the dark background. The scene conveys precision, technical skill, and luxury salon energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC05BaDHYmjWduP9r0F359bRz8pS6Mr3RgJFLpFdek6vfWeawGeCkISQHTDXvKpB0KZv5ESSK3sltekrffigmhpWYOhXY--N3nM9GBTgd2G_q7v1FOr1mUbaf_uLbqXIxH_sBCTEGlvw84Fd_EudmlBPIQuBrI_nlv6T9UGryz_uyID3QzE9KAIoOBiIVIh3d3gJ7uukgXjJ0sUrkD5o0in0c5ykasyTdHBnEI4AM_y--_QUvDjfXQWQJOBOBj5cA-dQSSf55Eb0g"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Helen B.</h3>
+<span class="px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm">Nail/Lash</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Pioneer in advanced lash extension techniques and architectural nail artistry.
+                        </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:scale-110" data-icon="brush">brush</span>
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:scale-110" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+<!-- Feven G. (Fashion) -->
+<div class="glass-card rounded-xl overflow-hidden group transition-all duration-500 neon-glow-hover">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Feven G. - Fashion Design Lead" class="w-full h-full object-cover grayscale-hover" data-alt="A sophisticated portrait of a high-fashion designer standing in a dark workspace filled with elegant drapery. The lighting is dramatic and directional, casting long shadows and highlighting textural details with a cool white light and a faint neon green glow from a nearby display. The aesthetic is high-end editorial noir, showcasing a leader in the fashion industry with poise and creative intensity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK7GXz8SuJ5B8SNtLR-Z5RjDtp0AjqZfqVJlpxI9o_3S0RnDSHoBrrF991Fs6Geb16HuD4NztpheLebdgGuYrcf_XXXqgmtepzxJO_a0iZ-ep_L_wPcWNcbjv6-q0JDPuje-4cnrDkaS7dAGQTr4Ifo_dijLktND1RR-SOLs0lrHGQsOzcC6uBD9nFlFf4eKpvAlx-f-khNFVc9d54LeDP_MAT48fQtIGrjAbU_49K2iagJnySaSH4r79XS_PFayI0uLp_ne2_oA"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Feven G.</h3>
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm">Fashion</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Award-winning fashion designer focused on integrating traditional motifs with modern silhouettes.
+                        </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110" data-icon="architecture">architecture</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110" data-icon="checkroom">checkroom</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Join Faculty CTA -->
+<section class="max-w-container-max mx-auto px-margin-mobile py-24 mb-24">
+<div class="glass-card rounded-xl p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Join our faculty</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-8">
+                        Are you an expert in your field? We are always looking for passionate mentors to join our world-class team of beauty artists.
+                    </p>
+<button class="bg-primary text-on-primary font-bold px-10 py-4 rounded-lg hover:bg-primary-fixed-dim transition-all active:scale-95 flex items-center gap-2 mx-auto">
+                        Apply Now
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute -right-24 -bottom-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only Actions) -->
+<nav class="fixed bottom-8 right-margin-mobile z-50 flex flex-col gap-4 md:hidden">
+<button class="bg-surface-container-high text-primary rounded-full p-4 shadow-lg shadow-primary/20 hover:scale-110 transition-transform active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="brand_awareness">brand_awareness</span>
+</button>
+<button class="bg-primary text-on-primary rounded-full p-4 shadow-lg shadow-primary/20 hover:scale-110 transition-transform active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="flex flex-col gap-gutter px-margin-mobile py-12 w-full bg-background border-t-2 border-primary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-12">
+<div class="col-span-1 md:col-span-1">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold">BEIMNET</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">
+                    The premier destination for professional beauty and fashion training in the region.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Programs</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Makeup Artistry</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Hair Styling</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Fashion Design</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Academy</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Instructors</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Curriculum</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Student Work</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Social</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">LinkedIn</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Behance</a>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant">
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 BEIMNET Beauty Training Center</p>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const img = card.querySelector('img');
+                if (img) img.style.filter = 'grayscale(0%)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const img = card.querySelector('img');
+                if (img) img.style.filter = 'grayscale(100%)';
+            });
+        });
+    </script>
+</body></html>

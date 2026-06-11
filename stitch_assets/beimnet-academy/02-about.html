@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | BEIMNET Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(127, 212, 32, 0.5);
+        }
+        .neon-border-hover:hover {
+            border-color: #7FD420;
+            box-shadow: 0 0 15px rgba(127, 212, 32, 0.2);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #353534;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#131313",
+                      "outline": "#8a947d",
+                      "on-error": "#690005",
+                      "inverse-on-surface": "#313030",
+                      "on-surface": "#e5e2e1",
+                      "surface-tint": "#87dc2a",
+                      "on-background": "#e5e2e1",
+                      "primary-container": "#7fd420",
+                      "on-tertiary-fixed-variant": "#6d00ad",
+                      "tertiary-fixed": "#f2daff",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-variant": "#353534",
+                      "secondary": "#ffade4",
+                      "primary-fixed": "#a1fa48",
+                      "on-secondary-container": "#fff6f8",
+                      "surface-container": "#201f1f",
+                      "outline-variant": "#414a36",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#3a3939",
+                      "surface-container-highest": "#353534",
+                      "secondary-fixed": "#ffd7ef",
+                      "tertiary-fixed-dim": "#e1b6ff",
+                      "on-tertiary": "#4c007b",
+                      "on-secondary": "#5f0050",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-fixed": "#0e2000",
+                      "tertiary-container": "#dcabff",
+                      "on-primary": "#1c3700",
+                      "secondary-fixed-dim": "#ffade4",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary": "#edcfff",
+                      "on-tertiary-container": "#7600ba",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#3a0031",
+                      "on-primary-fixed-variant": "#2b5000",
+                      "inverse-primary": "#3a6a00",
+                      "surface-container-low": "#1c1b1b",
+                      "primary-fixed-dim": "#87dc2a",
+                      "primary": "#99f140",
+                      "on-surface-variant": "#c0cab1",
+                      "surface": "#131313",
+                      "on-tertiary-fixed": "#2e004d",
+                      "on-primary-container": "#2f5700",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed-variant": "#860072",
+                      "error-container": "#93000a",
+                      "secondary-container": "#d100b3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "unit": "8px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Playfair Display"],
+                      "label-sm": ["Inter"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-background/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:text-primary-fixed-dim transition-colors scale-95 active:duration-100" id="menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary">B</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Courses</a>
+<a class="font-label-md text-label-md text-primary font-bold" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Gallery</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Instructors</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:text-primary-fixed-dim transition-colors scale-95 active:duration-100">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- Navigation Drawer (Overlay) -->
+<div class="fixed inset-0 z-[60] flex flex-col p-margin-mobile bg-surface-container-lowest transition-transform duration-300 ease-in-out translate-x-full" id="drawer">
+<div class="flex justify-between items-center mb-8">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold">BEIMNET Academy</span>
+<button class="text-primary" id="close-drawer">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-surface-variant hover:text-primary py-3 rounded-lg font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-surface-variant hover:text-primary py-3 rounded-lg font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined">school</span> Courses
+            </a>
+<a class="flex items-center gap-4 text-primary font-bold border-l-4 border-primary pl-4 py-3 bg-surface-variant/20 font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined">info</span> About
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-surface-variant hover:text-primary py-3 rounded-lg font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined">collections</span> Gallery
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-surface-variant hover:text-primary py-3 rounded-lg font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined">groups</span> Instructors
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 hover:bg-surface-variant hover:text-primary py-3 rounded-lg font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined">chat</span> Contact
+            </a>
+</div>
+</div>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[618px] flex items-center justify-center overflow-hidden">
+<img alt="Our Story" class="absolute inset-0 w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-700" data-alt="A cinematic interior view of a luxury modern beauty training academy featuring high-end minimalist architecture. The space is illuminated by soft neon green linear lights against a deep black charcoal background. Large, clean workstations with professional mirrors and sleek black chairs are arranged in a spacious gallery layout, reflecting an atmosphere of exclusive professional elegance and high-fashion style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzMqHiIicpLef9P1gog0ai2azBskBGYP413rYo8E6CYb0Nk1RapcQqLxFvcyqpZbelZ8AzxghqM_Zkae1Wr52y1y3_PRQkFGCzcP6zYyFJSx7c0sUcPaIRHA4CaBLV4YDet3yTGDbfCOSN_Nxts6poQNEz4nhwwobhNqeBt7vSkvr614Y8SPE3ZpfZL731ifPp5QbMYwvctxXAZJZqQpVjtTdCdfwNyBKOksQ_apb0ImlQmRpiBwxDZqbav1U1dZHanLKFrwJ6Sg"/>
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
+<h1 class="font-display-lg text-display-lg md:text-[80px] text-on-surface mb-6 leading-tight">Our <span class="text-primary italic">Story</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Founded at the intersection of technical precision and artistic expression, BEIMNET is where the next generation of beauty icons is forged.</p>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent"></div>
+</section>
+<!-- Story Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative group">
+<div class="absolute -inset-4 border border-primary/20 rounded-xl group-hover:border-primary/40 transition-colors"></div>
+<img alt="Founding Story" class="relative rounded-lg grayscale group-hover:grayscale-0 transition-all duration-500 shadow-2xl" data-alt="A black and white editorial portrait of a sophisticated woman founder in a professional designer outfit, posing in a high-contrast minimalist studio environment. The image uses sharp lighting to emphasize strong lines and a sense of authority. Subtle neon green light leaks at the edges add a modern, futuristic aesthetic consistent with the Neon Noir design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_l6ClPgICOFSXHw0Ws5mgSlPpzqJPehJh5KywnxKLGFrhn_UQF1Zc_DJZFhpN-g7SHKzkwXI7tfx4Ma4EqngwDYm5553CTes_w6FvbhRb0R1aCwTEMcPyjaERe2fdTjHw7Jvun8lU8jTtcSG7AQ6imZbCIuiqFG9OOHa5_7N8_qsce5_oNkyxADOuxJZx8-ZBf0JCFjLPaajjQtcufzJi0ui_F0WYPfqsFhYFJcmlL5-xgDHr2ePva26eSOyPiMUXsYd6DbDh5Q"/>
+</div>
+<div class="space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-primary">Mastering the Art of Beauty</h2>
+<div class="space-y-4">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            BEIMNET Academy was born from a simple observation: the beauty industry was evolving faster than the training available. Our founder, a visionary in high-fashion makeup and dermatological science, envisioned a space where professional standards met creative liberation.
+                        </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            Since 2019, we have served as a sanctuary for ambitious artists. Our mission is to empower professionals with not just the "how," but the "why"—fostering a deep understanding of facial architecture, color theory, and the psychology of beauty.
+                        </p>
+</div>
+<div class="pt-8 border-t border-outline-variant flex gap-8">
+<div>
+<p class="text-primary font-bold text-display-lg-mobile">2019</p>
+<p class="text-label-md text-on-surface-variant">Founded</p>
+</div>
+<div>
+<p class="text-primary font-bold text-display-lg-mobile">100%</p>
+<p class="text-label-md text-on-surface-variant">Dedication</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="py-16 bg-surface-container-lowest">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="p-8 bg-surface rounded-xl border border-white/5 text-center hover:bg-surface-container transition-colors group">
+<p class="text-primary font-display-lg-mobile text-display-lg-mobile mb-2 group-hover:scale-110 transition-transform">500+</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Graduates</p>
+</div>
+<div class="p-8 bg-surface rounded-xl border border-white/5 text-center hover:bg-surface-container transition-colors group">
+<p class="text-primary font-display-lg-mobile text-display-lg-mobile mb-2 group-hover:scale-110 transition-transform">5 Yrs</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Experience</p>
+</div>
+<div class="p-8 bg-surface rounded-xl border border-white/5 text-center hover:bg-surface-container transition-colors group">
+<p class="text-primary font-display-lg-mobile text-display-lg-mobile mb-2 group-hover:scale-110 transition-transform">12</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Programs</p>
+</div>
+<div class="p-8 bg-surface rounded-xl border border-white/5 text-center hover:bg-surface-container transition-colors group">
+<p class="text-primary font-display-lg-mobile text-display-lg-mobile mb-2 group-hover:scale-110 transition-transform">8</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Instructors</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-4">Core <span class="text-primary">Values</span></h2>
+<div class="w-24 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-10 bg-surface-container-high rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 group">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-background text-4xl">verified</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Excellence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We don't just teach techniques; we pursue perfection in every stroke and every shadow, setting industry benchmarks.</p>
+</div>
+<div class="p-10 bg-surface-container-high rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 group">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-background text-4xl">diversity_1</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Community</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our alumni network is a lifelong support system of creative minds, fostering collaboration over competition.</p>
+</div>
+<div class="p-10 bg-surface-container-high rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 group">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-background text-4xl">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Empowerment</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We equip our students with the business acumen and confidence to launch their own empires in the beauty world.</p>
+</div>
+</div>
+</section>
+<!-- Certifications Strip -->
+<section class="py-12 border-y border-outline-variant bg-surface-container-lowest/50">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="flex items-center justify-between gap-12 opacity-40 grayscale filter transition-all hover:opacity-100 flex-wrap md:flex-nowrap">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">workspace_premium</span>
+<span class="font-bold tracking-widest uppercase">Elite Artist Guild</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">military_tech</span>
+<span class="font-bold tracking-widest uppercase">Global Beauty Cert</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+<span class="font-bold tracking-widest uppercase">Cosmetic Pro Assc.</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">new_releases</span>
+<span class="font-bold tracking-widest uppercase">Industry Innovator</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile FAB cluster) -->
+<nav class="md:hidden fixed bottom-8 right-margin-mobile z-50 flex flex-col gap-4">
+<button class="bg-surface-container-high text-primary rounded-full p-4 shadow-lg shadow-primary/20 hover:scale-110 transition-transform active:scale-90 duration-200">
+<span class="material-symbols-outlined">brand_awareness</span>
+</button>
+<button class="bg-primary text-on-primary rounded-full p-4 shadow-lg shadow-primary/20 hover:scale-110 transition-transform active:scale-90 duration-200">
+<span class="material-symbols-outlined">chat</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="bg-background border-t-2 border-primary mt-24">
+<div class="flex flex-col gap-gutter px-margin-mobile md:px-margin-desktop py-12 w-full max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold block mb-6">BEIMNET</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-8">Elevating the standards of beauty training through innovation, precision, and an unwavering commitment to excellence.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-6">Links</h4>
+<ul class="space-y-4">
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Programs</a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Academy</a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Social</a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-6">Newsletter</h4>
+<form class="flex flex-col gap-4">
+<input class="bg-[#111111] border border-white/15 rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Your Email" type="email"/>
+<button class="bg-primary text-background font-bold py-3 rounded-lg hover:bg-primary-fixed-dim transition-colors" type="submit">Join Now</button>
+</form>
+</div>
+</div>
+<div class="pt-8 mt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 BEIMNET Beauty Training Center</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeDrawer = document.getElementById('close-drawer');
+        const drawer = document.getElementById('drawer');
+
+        menuToggle.addEventListener('click', () => {
+            drawer.classList.remove('translate-x-full');
+        });
+
+        closeDrawer.addEventListener('click', () => {
+            drawer.classList.add('translate-x-full');
+        });
+
+        // Close drawer on click outside
+        window.addEventListener('click', (e) => {
+            if (e.target === drawer) {
+                drawer.classList.add('translate-x-full');
+            }
+        });
+
+        // Add subtle parallax to hero
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const heroImage = document.querySelector('section img');
+            if(heroImage) {
+                heroImage.style.transform = `translateY(${scroll * 0.2}px)`;
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BEIMNET Academy | Beauty Training Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "outline": "#8a947d",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "surface-tint": "#87dc2a",
+                        "on-background": "#e5e2e1",
+                        "primary-container": "#7fd420",
+                        "on-tertiary-fixed-variant": "#6d00ad",
+                        "tertiary-fixed": "#f2daff",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "secondary": "#ffade4",
+                        "primary-fixed": "#a1fa48",
+                        "on-secondary-container": "#fff6f8",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#414a36",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed": "#ffd7ef",
+                        "tertiary-fixed-dim": "#e1b6ff",
+                        "on-tertiary": "#4c007b",
+                        "on-secondary": "#5f0050",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#0e2000",
+                        "tertiary-container": "#dcabff",
+                        "on-primary": "#1c3700",
+                        "secondary-fixed-dim": "#ffade4",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#edcfff",
+                        "on-tertiary-container": "#7600ba",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#3a0031",
+                        "on-primary-fixed-variant": "#2b5000",
+                        "inverse-primary": "#3a6a00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#87dc2a",
+                        "primary": "#99f140",
+                        "on-surface-variant": "#c0cab1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#2e004d",
+                        "on-primary-container": "#2f5700",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#860072",
+                        "error-container": "#93000a",
+                        "secondary-container": "#d100b3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .neon-glow-primary:hover {
+            box-shadow: 0 0 15px rgba(127, 212, 32, 0.4);
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: flex;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .editorial-overlay {
+            background: linear-gradient(to right, rgba(19, 19, 19, 0.9) 0%, rgba(19, 19, 19, 0.4) 50%, rgba(19, 19, 19, 0.1) 100%);
+        }
+        .card-border {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-border:hover {
+            border-color: rgba(153, 241, 64, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-background">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-background border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary">B</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-primary font-bold hover:text-primary-fixed-dim transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Courses</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Gallery</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Instructors</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center">
+<button class="text-primary hover:text-primary-fixed-dim transition-colors scale-95 active:duration-100">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</nav>
+<!-- NavigationDrawer (Mobile Only) -->
+<div class="fixed inset-0 z-[60] flex flex-col p-margin-mobile bg-surface-container-lowest transition-transform duration-300 ease-in-out translate-x-full md:hidden" id="drawer">
+<div class="flex justify-between items-center mb-8">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold">BEIMNET</span>
+<button class="text-on-surface-variant" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-6">
+<a class="text-primary font-bold border-l-4 border-primary pl-4 font-body-lg text-body-lg" href="#">Home</a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary" href="#">Courses</a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary" href="#">About</a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary" href="#">Gallery</a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary" href="#">Instructors</a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary" href="#">Contact</a>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-16">
+<div class="absolute inset-0 z-0">
+<img alt="Hero background" class="w-full h-full object-cover object-center grayscale" data-alt="A high-fashion editorial close-up of a professional makeup artist applying vibrant eyeshadow to a model. The background is a dark, moody studio setting with dramatic side-lighting emphasizing skin texture and cosmetic colors. The aesthetic is luxurious, modern, and professional, reflecting a high-end beauty academy brand with deep blacks and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6pVNGZ5BJy5qrtOIiRidwJ1iHfg-bLm_MF1UFjmLhJp7rX0vxMy1DWFLov0qwFsUaRSvFPGMInAYuz0Y-MP1gJFSI8kE5cMaf_I4lWb_Clk0C36z93xcS2r5gfD5B2NfxPChqQsWc9lXAlTG8QcOC3Xj2m_Jt9XRr2keZQpGJ_A12dqSzIFBFSUEOrJEGE69sWB9Gu-gbHVWY-ciSBRt7wkjlhd2UxrhlroVmKmsg_uW70B9qiIZSgKOxv6hYYcaCouJjp-vDzA"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="max-w-4xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">
+                    Transform Your Passion Into a <span class="text-primary">Thriving</span> <span class="text-secondary">Career</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
+                    Master the art of professional makeup, hairstyling, and nail technology with industry-leading mentors at BEIMNET Beauty Academy.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-background font-bold px-8 py-4 rounded transition-all neon-glow-primary hover:scale-105">
+                        Enroll Now
+                    </button>
+<button class="border-2 border-on-surface text-on-surface font-bold px-8 py-4 rounded hover:bg-on-surface hover:text-background transition-all">
+                        View Courses
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="bg-surface-container-lowest py-16 border-y border-outline-variant">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold">500+</p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Graduates</p>
+</div>
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-secondary font-bold">12</p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Programs</p>
+</div>
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-tertiary-container font-bold">8+</p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Instructors</p>
+</div>
+</div>
+</section>
+<!-- Marquee -->
+<div class="marquee bg-primary-container py-4 border-y border-primary/20">
+<div class="marquee-content flex gap-12 items-center">
+<span class="font-label-md text-label-md text-on-primary font-bold uppercase">Makeup · Hair · Nails · Aesthetics · Bridal · Editorial · Makeup · Hair · Nails · Aesthetics · Bridal · Editorial</span>
+<span class="font-label-md text-label-md text-on-primary font-bold uppercase">Makeup · Hair · Nails · Aesthetics · Bridal · Editorial · Makeup · Hair · Nails · Aesthetics · Bridal · Editorial</span>
+</div>
+</div>
+<!-- About Preview -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div>
+<span class="text-primary font-bold tracking-widest font-label-md text-label-md uppercase mb-4 block">Our Story</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Empowering the Next Generation of Beauty Artists</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12">
+                At BEIMNET Academy, we don't just teach techniques; we cultivate talent. Founded on the principles of precision and creativity, we provide a hands-on learning environment where ambitious artists can hone their craft and build successful businesses in the global beauty industry.
+            </p>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="font-label-md text-label-md">Certified Programs</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">pan_tool_alt</span>
+<span class="font-label-md text-label-md">Hands-on Training</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">business_center</span>
+<span class="font-label-md text-label-md">Career Support</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+<span class="font-label-md text-label-md">Elite Mentorship</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden card-border">
+<img alt="Academy Studio" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A sleek, modern beauty studio classroom featuring minimalist black workstations and bright LED vanity mirrors. Grayscale photography aesthetic that shifts to full color, showing a professional instructor demonstrating a technique to an engaged student. The lighting is crisp and even, highlighting the clean, luxurious environment of the academy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9CtIrB7frr1No1qAwdKk_lhoPyBDy_G5qjnngumEiMPGoydD2RK-xKk4gpKRY8I_hVY_Nrx2gI398DCf9uYkOQU7Wi0P8DZEE6K0fvLlkBzTx24i7GCn40zN_u1NzfbRjP--gHURDj2RA5hnfONFLyPnwI3oEEeQhaJfGMHvcJvHP9UzfncOYs0wo7W9-320KEpx3dWAXparE2bYK5gK9GgjfWeGPt9UwIA9ZfAJprOuJunMg7_Dr4SbHcgocywo92Xowj0iPjg"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-surface-container p-8 rounded-xl border border-outline-variant hidden md:block">
+<p class="font-display-lg-mobile text-display-lg-mobile text-primary leading-none">10</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Years of Excellence</p>
+</div>
+</div>
+</section>
+<!-- Featured Courses -->
+<section class="bg-surface-container-low py-24">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">Featured Programs</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Choose your path to excellence.</p>
+</div>
+<a class="text-primary font-bold hover:underline" href="#">See all courses</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Course Card 1 -->
+<div class="bg-surface-container-highest rounded-xl overflow-hidden card-border group">
+<div class="aspect-video overflow-hidden">
+<img alt="Makeup Course" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up of a makeup palette with vibrant neon colors and professional brushes. High-fashion photography style with a dark, sophisticated background and soft focus on the edges. Bright green and purple tones stand out, creating a high-energy and creative mood for an advanced makeup artistry course." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1mS7XQ9rOfOKdkQMP7ycTKlcJ2q7xHNF_bjwW8voX2pOjEWsZTo5TwK5Viv15hraD_qFQRCk6otuJt6o4hMwco2WhaRs5YHaqg4Hx0N4xGVHekkth0WwkXAqYGOkOJJRBEIt4ToE_M_nCuMNYQACKO1CltXDpRoc_u3bRc7tZ4alH9gB3LfWoKm7_rDvlurmV74P6bW7jAJ_2nUe3SrHCqVpgCv9URiwN4RqL3WLU-6yTeVL4UshoP2URS8JKGRmiicDUPeGAow"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-secondary-container text-on-secondary-fixed text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">New</span>
+<span class="text-primary font-bold font-body-md text-body-md">$850</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Advanced Makeup Artistry</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 12 Weeks</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">group</span> 10 Seats Left</span>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container-highest rounded-xl overflow-hidden card-border group">
+<div class="aspect-video overflow-hidden">
+<img alt="Hair Course" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Professional hair styling scene with high-end tools like a blow dryer and flat iron on a dark granite surface. Dramatic, low-key lighting with selective focus on the metallic accents of the tools. The mood is professional and modern, using a color palette of deep grays and sharp white light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7VhA7EwJ9TjSGk23MWYi7o7sestKl-8DrjuZiojZhTd9d6i3Fp2ReFWJyI2bL-Jv8sDXyhsL7RBMhr3zforw6bFjWOzHYRPTHIebI1NtziSiAyqWkakypcH9K8Whr2EBjQb7ni56pmKmesYCK9JyhurySe6SnDuTbl34UCgkeke611tSfKwVZK7g1MXjVRH4fY9eM5wZn3QJPJHMoYK_DMUsFXJedtXneu7jq7_BnNvqVIJRDsUHEiNg31HEi_4QOAE92Lp8orw"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Bestseller</span>
+<span class="text-primary font-bold font-body-md text-body-md">$1,200</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Pro Hair Styling Masterclass</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 16 Weeks</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">group</span> 5 Seats Left</span>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-surface-container-highest rounded-xl overflow-hidden card-border group">
+<div class="aspect-video overflow-hidden">
+<img alt="Nails Course" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Artistic macro photography of professionally manicured nails with intricate neon green geometric designs. The background is a stark black velvet, making the neon colors and glossy finish pop. Elegant and precise, conveying the high level of technical skill taught in the nail technology course." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEDmx-h-Rn2S1sdGyNC3u7p0JAf2CXXBiZziSEu03JTiV30rROWH67vcBwm0I8Jij8ajS74Cu9L31Lp2BJNyjapL2CsyBm4CtdmDlrJ7VqOwfNxypYnsRMHNXxDo-7OB7SZf5Z0I81VQ_60iosBhGKvhYkNNMnfz5tUn3CUzmKs9UuWVUC2Sv36llIr0jKl2boPtVtUEM3hVw9fAHYyuBAbndc0Z1-o1o-HEQxxZ-eWWvHm6WGuw3foiFqD2KfwkCHx883vYVQyA"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Popular</span>
+<span class="text-primary font-bold font-body-md text-body-md">$600</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Nail Tech &amp; Creative Art</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 8 Weeks</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">group</span> 12 Seats Left</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg">Why BEIMNET?</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-surface p-8 rounded-xl card-border text-center group transition-all hover:-translate-y-2">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-background transition-colors">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-3">Expert Faculty</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Learn from masters who work with top celebs and fashion brands.</p>
+</div>
+<div class="bg-surface p-8 rounded-xl card-border text-center group transition-all hover:-translate-y-2">
+<div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-background transition-colors">
+<span class="material-symbols-outlined text-3xl">construction</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-3">Modern Kits</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Each student receives a professional grade toolkit on day one.</p>
+</div>
+<div class="bg-surface p-8 rounded-xl card-border text-center group transition-all hover:-translate-y-2">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-tertiary-container group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-3">Industry Links</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Exclusive job placements at top salons and film studios.</p>
+</div>
+<div class="bg-surface p-8 rounded-xl card-border text-center group transition-all hover:-translate-y-2">
+<div class="w-16 h-16 rounded-full bg-outline-variant/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-on-surface group-hover:text-background transition-colors">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</div>
+<h4 class="font-headline-md text-[20px] mb-3">Flexible Study</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Weekend and evening batches for working professionals.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 bg-surface-container-lowest overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-16 text-center">Student Success Stories</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Testimonial 1 -->
+<div class="p-8 rounded-xl bg-surface-container-high border border-white/5 relative">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-6 italic">"The curriculum is intense but rewarding. I landed my first bridal gig before I even graduated. The mentorship is truly world-class."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Student 1" class="w-full h-full object-cover" data-alt="A professional headshot of a happy young woman, a former student, with perfect makeup. Soft studio lighting against a dark neutral background, conveying success and confidence. High-end, clean photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYVvbjO3KjLFZ0x8EZalrVPiBD5oh1LnEYwtvHeVxqtXbybzm5029FCyixdudb-yk9DM7wclZOwe4hjj-TnuzgwDx8p8WQcY6KpjjSYFMXB-EorwUeObVInm4KGpoOdsxBh0-0A2qGcqtOzN3XYrL1Lb5S7pOGfs1va-HPwyjf867XIe1lQmbEMm3ZtpYsYxGQXVqdLyy6aWxTSriAr0p29nXG30wC_dXEnmsO29wBtp7M0eeyw1r5u1Wyskhatb4eI1E2Eas_9A"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold">Sarah Jenkins</p>
+<p class="text-[12px] text-on-surface-variant">Freelance MUA</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-8 rounded-xl bg-surface-container-high border border-white/5 relative">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-6 italic">"Changing careers was scary, but BEIMNET made it seamless. The hands-on sessions gave me the confidence to open my own boutique salon."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Student 2" class="w-full h-full object-cover" data-alt="Professional portrait of a confident male hairstylist in a modern salon setting. He is smiling warmly, lit with soft daylight. The image is crisp and professional, fitting the aesthetic of a premium training center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjONXAO8PtmNSLpPmYYBvUjeD9rzH8PBG3YieFrr19mf43OH8eAz4iWn2cyXngs2cbSKvmMNS3iWWG1BABQRsb9pcMupzbZFuXJddO9_9Oee-Tlic3e0S-xHy3a7aNoGpXwgHmLIknAKkaHPdWhew4fo6w6DalgvN0fYYZ4nwuQijZuFqya-OyVijqE4xeHn4VCcr-_fJpg61JDT2SJpQUh35W0AV3GHIi83qRH1cUvfpoHbdz02BWBURhadTGErfbNdCRPBvipQ"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold">David Chen</p>
+<p class="text-[12px] text-on-surface-variant">Salon Owner</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="p-8 rounded-xl bg-surface-container-high border border-white/5 relative">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-6 italic">"The editorial module was a game changer. I've since worked on three fashion week shows. This academy opens real doors."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Student 3" class="w-full h-full object-cover" data-alt="Close-up portrait of a woman with avant-garde editorial makeup. She has a high-fashion look with dramatic lighting and deep shadows. The image is professional and artistic, representing the caliber of graduates from the editorial program." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4lLogaLWif1nJxhVjaYXuryEAjM7q14hi0t8LN5FdWTe9n1hKJKIo6VSwIWLrpjVH4ilDWQP64UkesUTj-TzWP5TC9glQqViuLhzAJ5ISMZ4ddJbnT3R25M3lixm3qOAVXy1Fmv-S--YPRI_PZRhWNE8YWw5mDvCz5x170t8qvLhidANkAtHhzk1hCCB-SHBeGoDtUir4ipSBPSbqyLo0Mle5itdt-aYE1gCuITqXSxjereUIro_1je6JeuTrfKN73glZDrWQiQ"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold">Aaliyah Muse</p>
+<p class="text-[12px] text-on-surface-variant">Editorial Stylist</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Banner -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto bg-primary rounded-3xl p-12 md:p-24 text-center relative overflow-hidden group">
+<div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+
+</div>
+<div class="relative z-10">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-background mb-8">Ready to Start Your Beauty Career?</h2>
+<p class="text-background/80 font-body-lg text-body-lg mb-12 max-w-2xl mx-auto">Join the next intake and transform your passion into professional excellence. Limited spots available for the Spring semester.</p>
+<button class="bg-background text-primary font-bold px-12 py-5 rounded-full text-lg hover:scale-110 transition-transform active:scale-95 shadow-xl">
+                    Enroll Now
+                </button>
+</div>
+</div>
+</section>
+<!-- BottomNavBar (FAB/Quick Nav) -->
+<div class="fixed bottom-8 right-margin-mobile z-50 flex flex-col gap-4">
+<button class="bg-surface-container-high text-primary rounded-full p-4 shadow-lg shadow-primary/20 hover:scale-110 transition-transform" title="Live Chat">
+<span class="material-symbols-outlined">brand_awareness</span>
+</button>
+<button class="bg-[#25D366] text-white rounded-full p-4 shadow-lg hover:scale-110 transition-transform" title="WhatsApp Us">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-background border-t-2 border-primary pt-20 pb-12 w-full px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold block mb-6">BEIMNET</span>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-sm mb-8">
+                        The premier training destination for aspiring beauty professionals. Elevating the standard of beauty education through passion, precision, and performance.
+                    </p>
+<div class="flex gap-4">
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">play_circle</span></a>
+</div>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-6">Quick Links</h5>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Programs</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Academy</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Social</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-6">Contact</h5>
+<ul class="flex flex-col gap-4 text-on-surface-variant font-label-md text-label-md">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 123 Fashion Ave, Studio City</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +1 (555) 000-1234</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> admissions@beimnet.com</li>
+</ul>
+</div>
+</div>
+<div class="pt-12 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant font-body-md text-body-md">© 2024 BEIMNET Beauty Training Center</p>
+<div class="flex gap-8 font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        // Simple scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-background/95', 'backdrop-blur-sm');
+            } else {
+                nav.classList.remove('bg-background/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body></html>

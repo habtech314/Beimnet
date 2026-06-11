@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Courses | BEIMNET Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .neon-glow-hover:hover {
+            box-shadow: 0 0 15px rgba(127, 212, 32, 0.4);
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .course-card-img {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+        .course-card:hover .course-card-img {
+            filter: grayscale(0%);
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "outline": "#8a947d",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "surface-tint": "#87dc2a",
+                        "on-background": "#e5e2e1",
+                        "primary-container": "#7fd420",
+                        "on-tertiary-fixed-variant": "#6d00ad",
+                        "tertiary-fixed": "#f2daff",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "secondary": "#ffade4",
+                        "primary-fixed": "#a1fa48",
+                        "on-secondary-container": "#fff6f8",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#414a36",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed": "#ffd7ef",
+                        "tertiary-fixed-dim": "#e1b6ff",
+                        "on-tertiary": "#4c007b",
+                        "on-secondary": "#5f0050",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#0e2000",
+                        "tertiary-container": "#dcabff",
+                        "on-primary": "#1c3700",
+                        "secondary-fixed-dim": "#ffade4",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#edcfff",
+                        "on-tertiary-container": "#7600ba",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#3a0031",
+                        "on-primary-fixed-variant": "#2b5000",
+                        "inverse-primary": "#3a6a00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#87dc2a",
+                        "primary": "#99f140",
+                        "on-surface-variant": "#c0cab1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#2e004d",
+                        "on-primary-container": "#2f5700",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#860072",
+                        "error-container": "#93000a",
+                        "secondary-container": "#d100b3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-background overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-background border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="text-primary active:scale-95 transition-transform" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary">B</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-primary font-bold transition-colors" href="#">Courses</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Contact</a>
+</nav>
+<button class="text-primary active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-secondary-container text-on-secondary-container text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+</header>
+<!-- NavigationDrawer (Mobile) -->
+<aside class="fixed inset-0 z-[60] flex flex-col p-margin-mobile bg-surface-container-lowest translate-x-full transition-transform duration-300 ease-in-out lg:hidden" id="nav-drawer">
+<div class="flex justify-between items-center mb-12">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold">BEIMNET Academy</span>
+<button class="text-primary" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-lg text-body-lg">Home</span>
+</a>
+<a class="flex items-center gap-4 text-primary font-bold border-l-4 border-primary pl-4 py-2" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-body-lg text-body-lg">Courses</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-2 hover:bg-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">info</span>
+<span class="font-body-lg text-body-lg">About</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-2" href="#">
+<span class="material-symbols-outlined">collections</span>
+<span class="font-body-lg text-body-lg">Gallery</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-2" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-lg text-body-lg">Instructors</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-2" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-body-lg text-body-lg">Contact</span>
+</a>
+</nav>
+</aside>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[442px] min-h-[400px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A high-fashion editorial close-up of professional makeup artist applying vibrant neon green eyeshadow to a model. The lighting is moody and cinematic with deep black shadows and a soft neon glow that emphasizes luxury and artistic precision. The overall aesthetic is Noir-inspired, with high-contrast sharp details and a professional academy atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrdSvtmGarQijArhasyJG017ADHQCI_LzluFXc9CA-RFlREGzI6N3_bB6gjuLlKgAQf5Ynrgpx_-DcnobmwKrArtFk3_8rTKdO2_N6r7Kv9XFfQ1WrVAf8MiGKgJq6onjpvfuVs9svW-wWwdx3r2vSVQ1kj8RHZmkscG2hjiPAomE-i2dC6-rzoePnER0-DsxT1iED7P8-na0ZMdxrbp8-GyL-J88PzvNegvy8ks4w6DmHjp4JlHvWYDY6LM_h3UeWSL-alUgYGA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+<div class="relative text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-on-surface">Our Programs</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Master the art of beauty with our industry-leading courses designed for the next generation of professional artists.</p>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="sticky top-16 z-40 bg-background/95 backdrop-blur-md py-6 border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile overflow-x-auto">
+<div class="flex items-center gap-3 whitespace-nowrap pb-2 md:pb-0">
+<button class="px-6 py-2 rounded-full bg-primary text-background font-bold font-label-md text-label-md transition-all active:scale-90">All</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all active:scale-90 border border-outline-variant">Makeup</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all active:scale-90 border border-outline-variant">Hair</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all active:scale-90 border border-outline-variant">Nails</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all active:scale-90 border border-outline-variant">Lashes</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all active:scale-90 border border-outline-variant">Fashion</button>
+</div>
+</div>
+</section>
+<!-- Grid Section -->
+<section class="py-20 max-w-container-max mx-auto px-margin-mobile">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Course Card 1 -->
+<article class="course-card group glass-card rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Makeup" class="course-card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional makeup kit spread out on a dark, reflective surface with neon green accent lighting. Elegant brushes and vibrant eyeshadow palettes are arranged artistically in a high-fashion photography style. The scene is sophisticated, conveying a sense of luxury, expertise, and modern beauty training." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsHbaQNTt588lVuu_6s9HRVhTlPLmNl9eh28yFCrgx4RV4CpSLGib57eKv6ycQxvD6T_FDA3YnM9xrKdjoUDVhCokvdHjAK9qenhbWpNAmVn6ahNCGUZN_BYQkZhVPWl5WvJ-SsKeC7Dqkhf3AnP3K6-wavsnU2vscp72suDxXitLiHZPmN6lqkFOmK2VxzUGhzJssZXeCWvxxkfjQvxK6-T1HutCiy8Auy52HdrgqAETuvwQz8a75TBZA6B0tLs3-0ew4x0JzoQ"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary text-background px-3 py-1 rounded-full text-label-sm font-label-sm">Makeup</span>
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full text-label-sm font-label-sm">New</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md mb-1 text-on-surface">Makeup Artistry</h3>
+<p class="text-label-sm font-label-sm text-outline">Level: Beginner</p>
+</div>
+<span class="text-primary font-bold text-headline-md">ETB 4,500</span>
+</div>
+<div class="flex items-center gap-4 mb-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-label-md font-label-md">6 Weeks</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="text-label-md font-label-md">Certified</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-background font-bold rounded-lg neon-glow-hover transition-all active:scale-95">Enroll Now</button>
+</div>
+</article>
+<!-- Course Card 2 -->
+<article class="course-card group glass-card rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Hair" class="course-card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up of a professional hairstylist working on a complex avant-garde hairstyle on a model in a dark, high-end studio. Neon purple and green lights create dramatic highlights on the hair texture. The mood is artistic and intense, reflecting the professional level of the beauty academy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiL4vFnkDk-RJN664qwZJNxs0dTCq_snCg9Z-mJGdoPt6PQII58jaNPXG25Ibs5Ff7HC_i_JKrVfwhC40LJ-9u2pon6fYoNpRZwQQlM03rjFFAg3Lw8IU5K8T-5rOwlga_hRWUfMxRkomlko6q2Bm3DBgruievUyHpyICAT4MJfwvgOT9tcVIVBhuiMe1_bl9yTZEhb1jvK89j3eaBQ8W2054wPbC8HdoXi58JmzYJiBS7PtCUWMCFIWqTzeIzIjkLtfdE2DIcoQ"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary text-background px-3 py-1 rounded-full text-label-sm font-label-sm">Hair</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md mb-1 text-on-surface">Hair Styling</h3>
+<p class="text-label-sm font-label-sm text-outline">Level: Advanced</p>
+</div>
+<span class="text-primary font-bold text-headline-md">ETB 4,200</span>
+</div>
+<div class="flex items-center gap-4 mb-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-label-md font-label-md">8 Weeks</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">work</span>
+<span class="text-label-md font-label-md">Job Placement</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/10 transition-all active:scale-95">Enroll Now</button>
+</div>
+</article>
+<!-- Course Card 3 -->
+<article class="course-card group glass-card rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Nails" class="course-card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Precision shot of a manicured hand with intricate nail art featuring neon geometric patterns. The hands are set against a sleek black background with sharp studio lighting. The focus is on technical excellence and high-fashion aesthetics within a professional training environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzz5o6tvY7uhxpViidSr_a-z5FflwJWgsjHY7H1xwuMePA5UAPODknnJROX8Qs7f3os7szHcxQ9UUkGKp3vt93GqrN3uF8XA6nRlJIL39KgifnFRz5gXbzAaZ68YeqwsfjWAjvkZOEZaPUhz6CbXxgb_oS-euhRARto3BccUQCvtbEFa6UIdZMU6KE4rAgudHH00-ihsKokNEtCKlep52zeo6v53vsleA1IWspQhD6yAe7AWn6di0nVFmjhKDJn5TgYi8uchgW1A"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Nails</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md mb-1 text-on-surface">Nail Technology</h3>
+<p class="text-label-sm font-label-sm text-outline">Level: Beginner</p>
+</div>
+<span class="text-primary font-bold text-headline-md">ETB 3,500</span>
+</div>
+<div class="flex items-center gap-4 mb-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-label-md font-label-md">4 Weeks</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">brush</span>
+<span class="text-label-md font-label-md">Full Kit Incl.</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-background font-bold rounded-lg neon-glow-hover transition-all active:scale-95">Enroll Now</button>
+</div>
+</article>
+<!-- Course Card 4 -->
+<article class="course-card group glass-card rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Lashes" class="course-card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Macro photography of a model's eye with dramatic long eyelashes. The lighting creates a high-contrast noir effect, with a subtle magenta glow illuminating the edge of the eyelid. The image is clean, sharp, and luxurious, emphasizing precision lash extension techniques." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6rTiVKm6FgND0fO0pnE1R3Snb1KBPEbaFqYzUKfLlSq23dcfF3LPFPNZCxU8cE6aOj5wDGdYe-JRYz4qg63CIhuX4hODhrFNoqB6_g8ilOMx93Fu5qRGPVtwfruR4o_5EhoR6I91lTVWszjczkE5IynTy5WlU8H_-HSLTfeBEwJ4DOUT2VCfJPLrochFpv7w6Vc_pdGaAEgqaDOoNoV_-5qhTWU51oRhZvUCevJ7INO-zyOaf0dQlMOTcwRWQ4STN1m0BTWNIRw"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Lashes</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md mb-1 text-on-surface">Lash Extensions</h3>
+<p class="text-label-sm font-label-sm text-outline">Level: Intermediate</p>
+</div>
+<span class="text-primary font-bold text-headline-md">ETB 2,800</span>
+</div>
+<div class="flex items-center gap-4 mb-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-label-md font-label-md">3 Weeks</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span class="text-label-md font-label-md">Pro Tools</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/10 transition-all active:scale-95">Enroll Now</button>
+</div>
+</article>
+<!-- Course Card 5 -->
+<article class="course-card group glass-card rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Fashion" class="course-card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A fashion designer's studio with sketches pinned to a wall and a mannequin draped in black silk fabric. Moody neon green light strips run along the ceiling, casting a modern glow. The aesthetic is high-fashion editorial, focused on the creative process and professional craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8gXRyEPAx01DIKGagDNPvfc6icXp6V6nES6qoUJHms-HgajDsrN7K_dT2BCCzqvX9sQzXPxi065tr-mRt82_EcCYyv7MmlscGz-3PuucRzG76TwBmDptoVWaT8a8sqiEQuIpxlW1sBhHZTYYag_nCTR9fOo7Z1NqNWh_ZKyaGqfGrD3GhAWAQaCe4L08u0TL_iz17MkkZAyF3SWY0NfTr8Q96GaLUeQ53s0SW1OR8ZMElRwwDDJEWW4-DElmhiqJCfTwl9a_wFg"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary text-background px-3 py-1 rounded-full text-label-sm font-label-sm">Fashion</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md mb-1 text-on-surface">Fashion Design</h3>
+<p class="text-label-sm font-label-sm text-outline">Level: Advanced</p>
+</div>
+<span class="text-primary font-bold text-headline-md">ETB 7,000</span>
+</div>
+<div class="flex items-center gap-4 mb-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-label-md font-label-md">12 Weeks</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="text-label-md font-label-md">Portfolio</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-background font-bold rounded-lg neon-glow-hover transition-all active:scale-95">Enroll Now</button>
+</div>
+</article>
+<!-- Course Card 6 -->
+<article class="course-card group glass-card rounded-xl overflow-hidden flex flex-col h-full transition-all duration-500 border-2 border-primary/40 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Bundle" class="course-card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A collage-style high-contrast image showing different beauty tools—a hair dryer, makeup brushes, and sewing threads—arranged artistically. Lighting is vibrant neon green and noir black. This represents a comprehensive multi-disciplinary beauty masterclass bundle, conveying professionalism and diverse skillsets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmIAeA3yUjdzaZjGmOSLPOpP6Dvy0UJV4McDpC_1fqPNRuzoKIHk06I_D3_BZNK2cffK7Z7nmJA5o3OwC7eEr4_vnEc3v4IQVcvDesrYdkm7LU5RxgTzjP1VcjSZq5m_n7zS9l1beSbJus8wQM50kaHJPQRZWi7U2U6K3WkB0lnUBohhPoTrO_XBFfBq-1_uaSg4tLA3tgjLaxWmTC5lhfg3ZBDIqOQeNBLA5vRxQtYm5-vjp7AodTVKo4b4lNehP9MVXqu1loIw"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full text-label-sm font-label-sm">Hot Deal</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow bg-primary/5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md mb-1 text-primary">Beauty Pro Bundle</h3>
+<p class="text-label-sm font-label-sm text-outline">Level: Comprehensive</p>
+</div>
+<div class="text-right">
+<span class="block text-outline line-through text-label-sm">ETB 22,000</span>
+<span class="text-primary font-bold text-headline-md">ETB 18,000</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-label-md font-label-md">6 Months</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+<span class="text-label-md font-label-md">Master Diploma</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-background font-bold rounded-lg neon-glow-hover transition-all active:scale-95 shadow-[0_0_20px_rgba(127,212,32,0.3)]">Get Bundle Discount</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Comparison Table Section -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-center mb-16 text-on-surface">Program Comparison</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="py-6 px-4 font-headline-md text-headline-md text-on-surface">Program</th>
+<th class="py-6 px-4 font-headline-md text-headline-md text-on-surface">Duration</th>
+<th class="py-6 px-4 font-headline-md text-headline-md text-on-surface">Price</th>
+<th class="py-6 px-4 font-headline-md text-headline-md text-on-surface">Job Support</th>
+</tr>
+</thead>
+<tbody class="text-on-surface-variant">
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-6 px-4 font-body-lg text-body-lg text-on-surface">Makeup Artistry</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">6 Weeks</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">ETB 4,500</td>
+<td class="py-6 px-4"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-6 px-4 font-body-lg text-body-lg text-on-surface">Hair Styling</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">8 Weeks</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">ETB 4,200</td>
+<td class="py-6 px-4"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-6 px-4 font-body-lg text-body-lg text-on-surface">Nail Technology</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">4 Weeks</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">ETB 3,500</td>
+<td class="py-6 px-4"><span class="material-symbols-outlined text-outline">remove_circle</span></td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-6 px-4 font-body-lg text-body-lg text-on-surface">Fashion Design</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">12 Weeks</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">ETB 7,000</td>
+<td class="py-6 px-4"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="py-6 px-4 font-bold font-body-lg text-body-lg text-primary">Pro Bundle</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">6 Months</td>
+<td class="py-6 px-4 font-body-lg text-body-lg">ETB 18,000</td>
+<td class="py-6 px-4"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stars</span> Full Placement</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 max-w-3xl mx-auto px-margin-mobile">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-center mb-12 text-on-surface">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<details class="group glass-card rounded-lg overflow-hidden" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-headline-md text-on-surface">When does the next session start?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md text-body-md border-t border-outline-variant pt-4">
+                        New sessions begin on the first Monday of every month. We recommend enrolling at least two weeks in advance to secure your spot as classes fill up quickly.
+                    </div>
+</details>
+<details class="group glass-card rounded-lg overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-headline-md text-on-surface">Do I need to bring my own equipment?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md text-body-md border-t border-outline-variant pt-4">
+                        Basic practice materials are provided. However, for courses like Makeup and Nail Tech, we offer professional-grade kits for purchase at a student discount.
+                    </div>
+</details>
+<details class="group glass-card rounded-lg overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-headline-md text-on-surface">Are the certificates internationally recognized?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md text-body-md border-t border-outline-variant pt-4">
+                        Yes, BEIMNET Academy certificates are accredited and recognized by major beauty industry bodies and salons across East Africa and beyond.
+                    </div>
+</details>
+<details class="group glass-card rounded-lg overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-headline-md text-on-surface">Can I pay in installments?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md text-body-md border-t border-outline-variant pt-4">
+                        We offer flexible payment plans for the 6-month Beauty Pro Bundle. Short-term courses generally require full payment upon registration.
+                    </div>
+</details>
+<details class="group glass-card rounded-lg overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-headline-md text-on-surface">Is there job assistance after graduation?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-body-md text-body-md border-t border-outline-variant pt-4">
+                        Absolutely. We have partnerships with leading salons and fashion houses. Graduates from our advanced programs receive priority placement services.
+                    </div>
+</details>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Floating Mobile) -->
+<nav class="fixed bottom-8 right-margin-mobile z-50 flex flex-col gap-4 md:hidden">
+<button class="bg-surface-container-high text-primary rounded-full p-4 shadow-lg shadow-primary/20 hover:scale-110 transition-transform active:scale-90">
+<span class="material-symbols-outlined">brand_awareness</span>
+</button>
+<button class="bg-primary text-on-primary rounded-full p-4 shadow-lg shadow-primary/20 hover:scale-110 transition-transform active:scale-90">
+<span class="material-symbols-outlined">chat</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="flex flex-col gap-gutter px-margin-mobile py-12 w-full bg-background border-t-2 border-primary">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="md:col-span-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold block mb-4">BEIMNET</span>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-sm">Elevating beauty standards through professional education and creative empowerment since 2024.</p>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-6 font-label-md text-label-md uppercase tracking-widest">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Programs</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Academy</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Social</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-6 font-label-md text-label-md uppercase tracking-widest">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 w-full focus:outline-none focus:border-primary transition-colors text-on-surface" placeholder="Email address" type="email"/>
+<button class="bg-primary p-2 rounded-lg text-background hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto w-full pt-12 mt-12 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">© 2024 BEIMNET Beauty Training Center</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">face_nod</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">camera_alt</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">alternate_email</span>
+</div>
+</div>
+</footer>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            drawer.classList.toggle('translate-x-full');
+            drawer.classList.toggle('translate-x-0');
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

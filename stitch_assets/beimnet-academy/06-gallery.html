@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery | BEIMNET Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .before-after-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .before-after-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #7FD420;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+        .slider-handle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 32px;
+            height: 32px;
+            background: #7FD420;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(127, 212, 32, 0.6);
+        }
+        .after-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: inset(0 0 0 50%);
+        }
+        .glass-card {
+            background: #1A1A1A;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(127, 212, 32, 0.3);
+            box-shadow: 0 0 20px rgba(127, 212, 32, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "outline": "#8a947d",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "surface-tint": "#87dc2a",
+                        "on-background": "#e5e2e1",
+                        "primary-container": "#7fd420",
+                        "on-tertiary-fixed-variant": "#6d00ad",
+                        "tertiary-fixed": "#f2daff",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "secondary": "#ffade4",
+                        "primary-fixed": "#a1fa48",
+                        "on-secondary-container": "#fff6f8",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#414a36",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed": "#ffd7ef",
+                        "tertiary-fixed-dim": "#e1b6ff",
+                        "on-tertiary": "#4c007b",
+                        "on-secondary": "#5f0050",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#0e2000",
+                        "tertiary-container": "#dcabff",
+                        "on-primary": "#1c3700",
+                        "secondary-fixed-dim": "#ffade4",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#edcfff",
+                        "on-tertiary-container": "#7600ba",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#3a0031",
+                        "on-primary-fixed-variant": "#2b5000",
+                        "inverse-primary": "#3a6a00",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#87dc2a",
+                        "primary": "#99f140",
+                        "on-surface-variant": "#c0cab1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#2e004d",
+                        "on-primary-container": "#2f5700",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#860072",
+                        "error-container": "#93000a",
+                        "secondary-container": "#d100b3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-background/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary scale-95 active:duration-100" id="menu-toggle">menu</button>
+<div class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary">B</div>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Courses</a>
+<a class="text-primary font-bold font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">Gallery</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary-fixed-dim transition-colors" href="#">About</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary scale-95 active:duration-100">shopping_bag</button>
+</div>
+</header>
+<!-- NavigationDrawer (Mobile Sidebar) -->
+<aside class="fixed inset-0 z-[60] flex flex-col p-margin-mobile bg-surface-container-lowest transition-transform duration-300 ease-in-out -translate-x-full lg:hidden" id="nav-drawer">
+<div class="flex justify-between items-center mb-8">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">BEIMNET Academy</div>
+<button class="material-symbols-outlined text-primary" id="close-drawer">close</button>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary py-2 rounded-lg transition-colors flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary py-2 rounded-lg transition-colors flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">school</span> Courses
+            </a>
+<a class="text-primary font-bold border-l-4 border-primary pl-4 font-body-lg text-body-lg flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">collections</span> Gallery
+            </a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary py-2 rounded-lg transition-colors flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">info</span> About
+            </a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary py-2 rounded-lg transition-colors flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">groups</span> Instructors
+            </a>
+<a class="text-on-surface-variant pl-4 font-body-lg text-body-lg hover:bg-surface-variant hover:text-primary py-2 rounded-lg transition-colors flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">chat</span> Contact
+            </a>
+</div>
+</aside>
+<main class="pt-24 pb-20">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop mb-20 relative">
+<div class="max-w-container-max mx-auto text-center md:text-left">
+<div class="inline-block px-4 py-1 rounded-full border border-primary/30 text-primary font-label-md text-label-md mb-6 uppercase tracking-widest">Mastery in Motion</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">Student Work</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">Real results from real students. Witness the evolution of technique and the birth of professional artistry within our neon-lit studios.</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4" id="filter-tabs">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all">All</button>
+<button class="px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all">Makeup</button>
+<button class="px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all">Hair</button>
+<button class="px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all">Nails</button>
+<button class="px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all">Fashion</button>
+</div>
+</div>
+<div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+</section>
+<!-- Before & After Sliders -->
+<section class="px-margin-mobile md:px-margin-desktop mb-24 max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-12 border-l-4 border-primary pl-6">The Transformation</h2>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Slider 1 -->
+<div class="before-after-slider group h-[500px]" data-slider="1">
+<img alt="Before" class="before-image" data-alt="A high-fashion beauty portrait in a dark studio setting. The subject has a clean, bare-faced look with natural skin texture, emphasizing the starting point of a professional makeup transformation. Soft ambient light from the side highlights the facial structure against a deep charcoal background, creating a professional editorial aesthetic with Neon Noir undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyINH42lyTajYGgRzcPaMtDJSYha2fPcNsrX7nm-1wEH2ZTKE_jqmTT_Povc7DY2VL-zl5IPVVKzfOWSanRC_H674dHUm_22QPstaq9iAzznsSIukwlkQvspEVRgqcagQr3p5FD9nnyORnrhM7UXRjwP4rS6dpzSrIU0m8a1CTMErgOdkLcpJkLp72nfDU09Z6wfz3h62GUp7hx5WKHgwPpEuQRwltIgPR6SaNCViHlFkJodXzMD-UAuOVirUZ7sSPTpd2aH_iGw"/>
+<div class="after-image" style="clip-path: inset(0 0 0 50%);">
+<img alt="After" class="w-full h-full object-cover" data-alt="A striking editorial makeup result featuring bold, neon-green graphic eyeliner and luminous, high-gloss skin. The subject is posed in a high-fashion gaze, with the makeup catching the light of a nearby neon sign. The style is sharp, professional, and artistic, showcasing advanced technical skills in a dark, atmospheric salon environment with vibrant green highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD19hihGVffmexFgdKGyHzGF3LBZ5F-45HQxciiLBXhQnz_bIcARwDFodef5D-e8629L2Vu5KEN7BFYXHC4DvGX5efRg2H2dB_g1d2xNad6fGQjj-eefM6Tj2qrc7xnvxRM01cotmDW6wzqnguRgNLZn7dh38wX3jQaT6EOFpJLTCFK8Ku3jp-LaduevytGfVEvpj2D6G0sdRX1ZTxL4UnUPt0WDi6DKCCRvjY7GN5zr4IXarOQ6KUod0hzLvBeknn1qHNUY6gZ2w"/>
+</div>
+<div class="slider-handle" style="left: 50%;"></div>
+<div class="absolute bottom-4 left-4 z-20 bg-background/60 backdrop-blur-sm px-4 py-1 rounded text-primary font-label-md text-label-md">Bridal High-Glam</div>
+</div>
+<!-- Slider 2 -->
+<div class="before-after-slider group h-[500px]" data-slider="2">
+<img alt="Before" class="before-image" data-alt="A close-up shot of hair before a professional styling session in a modern salon. The hair appears flat and unstyled, capturing the raw potential of a student project. The lighting is moody and focused, with a deep black background that aligns with a high-end luxury brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuGgCHDeqo-JjbrNuOUpUhGrGZ8C3TuUoEZ2BqYFAjOdvM6QPJbyO4Q3vZvIAaMtANTRIoUUnz59wr8J5Tg9Tve2ocB8DrmRVNu4CswLmeVQApmd1ofY5p_6H0fGPqoA3EQsSlBVAE8OW9FmzKDrrIcIDbofaaRJwJFxafJexrUyHM9FKNSEDpG0_wAeAJaEZKZYj3bpUt7XIDgXB35cf7aNt470yFN3c-d8QjjzlXqRffmRjjhnJNu9r9CKn16hep29NXuzYVng"/>
+<div class="after-image" style="clip-path: inset(0 0 0 50%);">
+<img alt="After" class="w-full h-full object-cover" data-alt="A professional avant-garde hairstyle with intricate braids and vibrant magenta accents. The hair is sculpted into a architectural shape, catching a soft purple glow from professional studio lighting. The finished look is daring and high-energy, demonstrating mastery in advanced hair design within a sophisticated Neon Noir aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOqahlCjTOHca3iiDoL3Yo1U2KyIHIW42Nxu2wT7tOkSl-gDdxV3TgMtpxoT_T9fIE50lx6hpxGNbfVdPThSGN6pqCIqCfPZ-31FTysDqFIVeZAbO1xoshgvDCqn9E46N3r_C_jWpWzJEjSKo1A11eumnmKTh7j-Os3863_gQLPJwL2hc6tOi1HAhzJ7-x5ALpu1nFGiZC4dSCQlQf5X6jzRZT9NpyrosmNhEG67kmGhyYoSrFlRMVTOt0NHUbqotPzoY76MHSvg"/>
+</div>
+<div class="slider-handle" style="left: 50%;"></div>
+<div class="absolute bottom-4 left-4 z-20 bg-background/60 backdrop-blur-sm px-4 py-1 rounded text-primary font-label-md text-label-md">Avant-Garde Sculpting</div>
+</div>
+<!-- Slider 3 -->
+<div class="before-after-slider group h-[500px]" data-slider="3">
+<img alt="Before" class="before-image" data-alt="A close-up of natural, un-manicured hands resting on a black reflective surface. The image focuses on the raw detail of the nails, preparing the viewer for a creative nail art transformation. The lighting is low-key and dramatic, fitting for an exclusive beauty academy portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB1xsq-iJ1X0vgMArUiDwBE9lT8a4Zt9rILpddiKCVx4RyQWvjeh2PDw8nycxjCFt9eJRY-d_2CSuWJSOl-78TzUAu2CjQusoNioZIQQ-SSSljrRRF-C1vLJv5mOI5d53fqoaBUyqEnf0AxfmSGQqE1s-WFIlx8qXmYLTszeep8OV12SULSE8PIwOmqIw1TsCv70HWe2_MeVSoCW5tsg3leooYm0Jt3jh1IAbmXcgK_lN5NmqThPkqzZOvUVBe3xliy3LsvAK8YA"/>
+<div class="after-image" style="clip-path: inset(0 0 0 50%);">
+<img alt="After" class="w-full h-full object-cover" data-alt="Exquisite nail art featuring long stiletto shapes with holographic chrome finish and embedded neon-green crystals. The hands are posed elegantly against a dark leather background. The craftsmanship is flawless, reflecting high-end luxury and technical precision in modern nail technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMSjBwDDIpk3CVZJFxCC4d6xcSaql0DXJ5BeksdzfOY3Vl8C_nPOz8VTiKogAmC1qsHEf7x-WTwrwB8VspeCBpdAy62XRV7_SZnUtpf-hkWkFpik9eN5J7_1pS_w1tCC_JYboCOJ4a_SJsDEAGNmX7pCNQL3Q7Lq9Eq11qegVotx4MNvCCQ5mW8Xr1Qv7qbz7mDgEKiFlj8iESx-SMdtcZZUYq8rz1chQ6G-Ze8U0hm4TE45rqNdBdQNWiHjmI2rxFzPebYD49hQ"/>
+</div>
+<div class="slider-handle" style="left: 50%;"></div>
+<div class="absolute bottom-4 left-4 z-20 bg-background/60 backdrop-blur-sm px-4 py-1 rounded text-primary font-label-md text-label-md">Architectural Nail Art</div>
+</div>
+</div>
+</section>
+<!-- Masonry Grid Gallery -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-32">
+<div class="columns-1 md:columns-2 lg:columns-3 gap-gutter space-y-gutter">
+<!-- Masonry Items -->
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A professional close-up of a student-created makeup look featuring sharp, black winged liner and a bold magenta lip. The model has flawless porcelain skin, and the shot is lit with high-contrast, editorial lighting. The mood is sophisticated and exclusive, characteristic of a top-tier beauty training center portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuTea3VNkgc0CMRLpLtfPGBB2gMarXLEAouL8qtuU9yUPk-CU_6t62Pc7c6_oQ-oQ0o9dglVb5aiggZYNRx9OU3Cf3sR0oPahBI36CSt_IfMS_T8vG1c-f3ol1OmmXl3cdwkI9Bu4fdB9wGlkLDskoLFBRALsENa_VyXkUkluDFD82Lw3P3DEeWOscbdakdDhORVqCd2aKK_ofFs20NBhsVE1Q-WJQM6u0_yj-iAMU54k9uFZLUOabk27fzz6BjQoRAcbeQc4hzA"/>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-label-md text-primary">Editorial Edge</h3>
+<span class="text-secondary font-label-sm text-label-sm bg-secondary/10 px-2 py-1 rounded">New</span>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: Elena V.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A high-fashion salon shot showing a student performing an intricate hair styling technique. The environment is dark and professional, with glowing neon green accents from the equipment. The focus is on the precision of the hand movements and the texture of the hair under sharp spot lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO159KB6W0LAqr6KfdOIHNFjc94BGsXB215OZIMvMBjg-Ut4nkLg31i9DHsP8EGGF5M4Y0X26pIv7Xj0TV2v0d7k5-tOvtDrs2_dpNawPV6lVaMjdkoSM2us4yNgVaqkqD42uVSS1xzD3-LhdFtMlfGfhv0dnrUgCQaa3LNWNp_b8VTUpa4wZYqUNRcUuHGwd-_zT7p4jfWrcG8Z-RS8nzjswigftq5hZu0bYeV1mQ2S--zW1YX08w0fRkocuTPLXv1Bh8FbDGNQ"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">Precision Styling</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: Marcus J.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A macro shot of vibrant, creative eye makeup featuring a blend of electric blue and neon yellow shadows. The skin is dew-kissed and shimmering, captured in a high-fashion editorial style. The image exudes high-energy modernism and artistic freedom, set against a dark, moody background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMKshWyUVc1rfoZ3M0Dy2K781zeEOFOJhCvRovnFMktK2tmP8fdEZFKFhwz9aUVnc5rd47vPPDK1bAVtySw5COlKVO1JHuoZZbP9LOueMQiXeoF2nExEeEdGvaOEyJaShJRRb5GrxVLNdWVQFzYB7THDro8emcxUVMBsRlrmQgkbQURg-3TyST_7aDm6b8NjDVRC4N4MidTsLIKfUTrYbs1xDiIgp2ZsH0lVldtZUFN-q8JOC74bW5Og6Tqtry2RrsJiL0m1-ykA"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">Color Fusion</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: Sarah L.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A full-body high-fashion editorial shot in a dark studio. The model wears a sculptural dress and has elaborate avant-garde makeup. The lighting is cinematic, with strong highlights and deep shadows, creating a sophisticated gallery feel for a luxury beauty training center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJh6PkDsxn7z9evzg5ySDP8qMUcr5-_Cz3gEElTwQW1bKtE_NwnY6Z6cmLjZD2sOdAFHGMk0vSj9JaDZldYryv9ln-4W0P9XBUUe4EqJsxpsvcmmSIEE4jQkARzip5Y9kKR31gPyj2H6fdmSDe1d6EQTWzZed2rr6Qrb9Y3qRtujVFk8EhIAS6NNU3eGDLyrtPhdc8RN0fGr9QF6Kx0BJUqRewosFFwJJibzscJ17opkYZwaFngxB7m951I_PQ0yvvDf1PopyTDQ"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">High-Fashion Runway</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: Team Project</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="An artistic flat-lay of professional beauty tools, including brushes and palettes, arranged on a black marble surface. A single neon green light strip casts a futuristic glow across the scene. The composition is clean, balanced, and emphasizes the professional-grade training provided at the academy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJn0cEPa2_KfSOxLGGLmeNjmylmMKwTLLmVsPequO2SFl6_gP3c_YTsSN7x7dVDVcZ-5Rxwgyby6pFc13xjGpkqvWzS715xOsKisOnMANFz3l8Jk0cZcfEnikNMOkNdvUioXAmOcdU5-4RGdvJd4aZPZrEcOxRzA0dVmUGRjhI2FcfjXB9XqY7-crHCtZLDKilJIKneUlfVZn1DafClS1WbtIIyiCVfB8bSkMb7ZexN8EtlULEcyBsPAkrIBt73e3mVtTzK2yiwA"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">The Toolkit</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Session: Fundamentals</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A portrait of a model with intricate face jewelry and metallic silver makeup accents. The lighting is cool-toned and futuristic, with subtle neon green highlights. The image demonstrates boundary-pushing creativity and technical expertise in special effects and beauty artistry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOD3VGG43BdIVLEj7FOVi4fIg35FlfBIRk5ocBGpKk_lNFCq3-0RuQjYca_efriI0LlZhhjnaBg4nTIwQ2rvnNuPyLtfCkVrNi_SZ5NLy8Op89l-BV9KEMBTr_8lHAuDTO3QX3AadsR-08wCN9FiCxKdNeUIEqEaq_4WmWB59v32JmL82gvoHT858YTonj8tI2rUmBh-rKkj8EZ93XEE3Ho9pObqfmbsEml9JO_Sp3ncY3WEofzgvKCkil3-RTUzOdXjn2VIJlSA"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">Futuristic Glow</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: David K.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A professional studio photo showcasing a sophisticated bridal hairstyle with soft waves and delicate pearl accessories. The model is lit with warm, flattering light that stands out against the dark, high-fashion studio aesthetic of the academy. It represents the salon-ready skills of the graduates." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADHUC29cnpAxIAHBSPP4GMhfJGw1qIxn3TR5-0Ly95P_DRfKOwr4EJ1XdW_7_35YGUmSTx1YeqdUgps0Nl5CBb-QkJ_oApYLXyyFkc7OKzJ2rizfryAyFVrb0EbOrcpMVw0TKB8-pQrHEdZ30P51SYD3zBHaTKgTMTD-rRPnH9QVI_so--Q6XPqpzl48BNaiBJkfb3MSs83aOsOOCXgBrefpe-5PrTCNiGHcImEf90z0Fl5RYv9YQMlol52KyDPbLK4bK55g87-w"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">Bridal Elegance</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: Maya R.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A close-up of elaborate nail extensions with hand-painted gold leaf details and neon accents. The hands are posed on a dark velvet cloth, highlighting the luxury and detail-oriented focus of the nail tech program. The style is modern, sharp, and high-contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkG9s-4fW4Rsi64nyGODFFKxAb8zCS_6dRaCW5pniY9ZqKKkts4WM74_JrQwP8cnHujK7gxyHfqnvruTxH_1di4jkUuZmfVm1Z0L6Ath_L_7bYa-2pKc13nfdWvF540FzQ2Mjd5OFlJ7AWa43k6LeTc-_aeONlq2deTAX2RwxUJt8WF7AunL4Q5R_F0CCFHiFmV71iSfto8gccHKSlLDfkDd93CgJ_PhLfDHHSTF4Q5Jk-2BIxLIo3S2nKtxNd_zHS9XWRRLg2gA"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">Gold Leaf Fusion</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: Chloe T.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group break-inside-avoid">
+<img alt="Work" class="w-full hover:scale-105 transition-transform duration-500" data-alt="A vibrant beauty portrait with neon lighting reflecting off the subject's face. The makeup is bold, with glowing UV-reactive elements that pop against the deep black background. This high-energy modernist style emphasizes the academy's commitment to trend-setting and creative flair." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9yTxE-Aw5VRZ0LgMw83gt0UaMji1KaND6y72Dv0CawQq27H2EpDf9Xu2M5q3bFnVr7OVdiF6fMfX6lcxdArBfH-8y705n1C2dyGCwHTilP88dWlNELZhIL8ip5b8-Nc6ZNpJgFi2EVFg8dnLxTKHP87mOXhQ-nJHpbHSqFG6-vaHNt1cQC2O2ZrlF685pKviG8NmcKOOp47YQ4LreBsOGvRN-LaIN2uhqpfgCd6pPflMedfLNofOv9e3tnp8gsX0NXipVF8j_jQ"/>
+<div class="p-6">
+<h3 class="font-headline-md text-label-md text-primary">UV Creative</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Student: Leo G.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Icons) -->
+<nav class="fixed bottom-8 right-margin-mobile z-50 flex flex-col gap-4 md:hidden">
+<button class="bg-primary text-on-primary rounded-full p-4 shadow-lg shadow-primary/20 scale-90 duration-200">
+<span class="material-symbols-outlined">brand_awareness</span>
+</button>
+<button class="bg-surface-container-high text-primary rounded-full p-4 shadow-lg scale-90 duration-200">
+<span class="material-symbols-outlined">chat</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="flex flex-col gap-gutter px-margin-mobile md:px-margin-desktop py-12 w-full bg-background border-t-2 border-primary">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-6">BEIMNET</div>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-sm">Empowering the next generation of beauty artists through professional technique and creative innovation.</p>
+</div>
+<div>
+<h4 class="text-primary font-label-md text-label-md uppercase tracking-widest mb-6">Explore</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors" href="#">Programs</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors" href="#">Academy</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors" href="#">Social</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary font-label-md text-label-md uppercase tracking-widest mb-6">Join Us</h4>
+<p class="text-on-surface-variant font-label-md text-label-md mb-6">Subscribe for workshop updates.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 w-full focus:border-primary focus:ring-1 focus:ring-primary outline-none text-on-surface" placeholder="Email" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-bold">Sign</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto w-full pt-12 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-on-surface-variant font-label-md text-label-md">© 2024 BEIMNET Beauty Training Center</span>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Drawer Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeDrawer = document.getElementById('close-drawer');
+        const navDrawer = document.getElementById('nav-drawer');
+
+        menuToggle.addEventListener('click', () => {
+            navDrawer.classList.remove('-translate-x-full');
+        });
+
+        closeDrawer.addEventListener('click', () => {
+            navDrawer.classList.add('-translate-x-full');
+        });
+
+        // Before/After Slider Logic
+        document.querySelectorAll('.before-after-slider').forEach(slider => {
+            const handle = slider.querySelector('.slider-handle');
+            const afterImage = slider.querySelector('.after-image');
+
+            const moveSlider = (e) => {
+                const rect = slider.getBoundingClientRect();
+                const x = (e.clientX || e.touches[0].clientX) - rect.left;
+                const position = Math.max(0, Math.min(x, rect.width));
+                const percentage = (position / rect.width) * 100;
+
+                handle.style.left = `${percentage}%`;
+                afterImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+            };
+
+            slider.addEventListener('mousemove', moveSlider);
+            slider.addEventListener('touchmove', moveSlider);
+        });
+
+        // Simple Filter Tab Logic
+        const filterButtons = document.querySelectorAll('#filter-tabs button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('glass-card', 'text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary');
+                btn.classList.remove('glass-card', 'text-on-surface-variant');
+            });
+        });
+
+        // Micro-interactions for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
