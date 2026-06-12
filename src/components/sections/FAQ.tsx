@@ -30,33 +30,42 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 max-w-3xl mx-auto px-margin-mobile">
-      <motion.h2
-        className="font-serif text-display-lg-mobile md:text-headline-lg text-center mb-12 text-on-surface"
+    <section className="py-16 md:py-32 max-w-3xl mx-auto px-margin-mobile">
+      <motion.div
+        className="mb-16 text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        Frequently Asked Questions
-      </motion.h2>
+        <p className="text-[11px] uppercase tracking-[0.2em] text-primary mb-5 font-semibold">
+          Questions
+        </p>
+        <h2 className="font-serif text-[24px] md:text-[36px] tracking-tight">
+          Frequently Asked Questions
+        </h2>
+      </motion.div>
 
-      <div className="space-y-4">
+      <div className="divide-y divide-outline-variant">
         {faqs.map((faq, i) => (
           <motion.div
             key={i}
-            className="glass-card rounded-lg overflow-hidden"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
+            transition={{ delay: i * 0.04, duration: 0.3 }}
           >
             <button
-              className="flex justify-between items-center w-full p-6 text-left cursor-pointer"
+              className="flex justify-between items-center w-full py-6 text-left cursor-pointer group"
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              aria-expanded={openIndex === i}
+              aria-controls={`faq-answer-${i}`}
             >
-              <span className="font-serif text-headline-md text-on-surface">{faq.q}</span>
+              <span className="font-serif text-[18px] md:text-[20px] text-on-surface group-hover:text-primary transition-colors duration-200">
+                {faq.q}
+              </span>
               <motion.span
-                className="material-symbols-outlined text-primary shrink-0"
+                className="material-symbols-outlined text-primary shrink-0 ml-4"
                 animate={{ rotate: openIndex === i ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >
@@ -66,13 +75,15 @@ export default function FAQ() {
             <AnimatePresence>
               {openIndex === i && (
                 <motion.div
+                  id={`faq-answer-${i}`}
+                  key="content"
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-6 text-on-surface-variant font-body-md text-body-md border-t border-outline-variant pt-4">
+                  <div className="pb-6 text-on-surface-variant text-[15px] leading-[1.7] max-w-[60ch]">
                     {faq.a}
                   </div>
                 </motion.div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -27,31 +28,45 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-4 left-4 right-4 z-50 flex justify-between items-center px-margin-mobile md:px-8 h-20 transition-all duration-300",
-        "bg-[#000000] border border-outline-variant rounded-2xl"
+        "fixed top-4 left-4 right-4 z-50 flex justify-between items-center h-16 transition-all duration-300",
+        "bg-background/90 backdrop-blur-md border border-outline-variant rounded-none"
       )}
     >
-      <Link href="/" className="font-serif italic font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-lg" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)" }}>
-        BEIMNET
-      </Link>
+      <div className="px-margin-mobile md:px-8 w-full flex justify-between items-center">
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+        >
+          <Image
+            src="/images/logo-new-v2.svg"
+            alt="BEIMNET Academy"
+            width={44}
+            height={44}
+            className="w-11 h-11"
+            priority
+          />
+          <span className="font-serif text-[20px] font-bold tracking-tight text-on-surface">
+            BEIMNET
+          </span>
+        </Link>
 
-      <div className="hidden md:flex gap-8 items-center">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={cn(
-              "font-label-md text-label-md transition-colors",
-              pathname === link.href
-                ? "text-primary font-bold"
-                : "text-on-surface-variant hover:text-primary"
-            )}
-          >
-            {link.label}
-          </Link>
-        ))}
+        <div className="hidden md:flex gap-6 items-center">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "text-[13px] uppercase tracking-[0.1em] transition-colors font-medium",
+                pathname === link.href
+                  ? "text-primary"
+                  : "text-on-surface-variant hover:text-on-surface"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </div>
-
     </nav>
   );
 }

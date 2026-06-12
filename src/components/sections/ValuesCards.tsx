@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 
 const values = [
   {
-    icon: "verified",
+    number: "01",
     title: "Excellence",
-    desc: "We don't just teach techniques; we pursue perfection in every stroke and every shadow, setting industry benchmarks.",
+    desc: "We pursue perfection in every stroke and every shadow, setting industry benchmarks.",
   },
   {
-    icon: "diversity_1",
+    number: "02",
     title: "Community",
     desc: "Our alumni network is a lifelong support system of creative minds, fostering collaboration over competition.",
   },
   {
-    icon: "bolt",
+    number: "03",
     title: "Empowerment",
     desc: "We equip our students with the business acumen and confidence to launch their own empires in the beauty world.",
   },
@@ -22,36 +22,36 @@ const values = [
 
 export default function ValuesCards() {
   return (
-    <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-      <motion.div
-        className="text-center mb-16"
+    <section className="py-16 md:py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <motion.h2
+        className="font-serif text-[24px] md:text-[36px] tracking-tight mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <h2 className="font-serif text-display-lg-mobile text-on-surface mb-4">
-          Core <span className="text-primary">Values</span>
-        </h2>
-        <div className="w-24 h-1 bg-primary mx-auto" />
-      </motion.div>
+        Core Values
+      </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant">
         {values.map((v, i) => (
           <motion.div
             key={v.title}
-            className="p-10 bg-surface-container-high rounded-xl border border-white/10 hover:border-primary/50 transition-all duration-300 group"
-            initial={{ opacity: 0, y: 30 }}
+            className="bg-background p-8 md:p-10"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
+            transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-              <span className="material-symbols-outlined text-primary group-hover:text-background text-4xl">
-                {v.icon}
-              </span>
-            </div>
-            <h3 className="font-serif text-headline-md text-on-surface mb-4">{v.title}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">{v.desc}</p>
+            <span className="text-[11px] text-primary font-semibold tracking-widest">
+              {v.number}
+            </span>
+            <h3 className="text-[18px] font-semibold mt-4 mb-3 text-on-surface tracking-tight">
+              {v.title}
+            </h3>
+            <p className="text-[15px] text-on-surface-variant leading-[1.6]">
+              {v.desc}
+            </p>
           </motion.div>
         ))}
       </div>

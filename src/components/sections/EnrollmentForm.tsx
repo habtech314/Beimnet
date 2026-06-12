@@ -67,47 +67,70 @@ export default function EnrollmentForm() {
   };
 
   return (
-    <div className="lg:col-span-7 surface-card rounded-xl p-8 md:p-12 border border-white/10">
-      <h2 className="font-serif text-headline-md text-on-surface mb-8">Enrollment Request</h2>
+    <div className="lg:col-span-7 bg-surface-container-lowest p-6 md:p-12 border border-outline-variant">
+      <p className="text-[11px] uppercase tracking-[0.2em] text-primary mb-5 font-semibold">
+        Enroll
+      </p>
+      <h2 className="font-serif text-[24px] tracking-tight mb-10 text-on-surface">
+        Enrollment Request
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">FULL NAME</label>
+            <label className="text-[13px] font-semibold uppercase tracking-wider text-on-surface-variant" htmlFor="fullName">
+              Full Name
+            </label>
             <input
-              className="w-full bg-[#111111] border border-white/10 rounded-lg py-3 px-4 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
+              id="fullName"
+              className="w-full bg-background border border-outline-variant rounded-lg py-3 px-4 text-on-surface text-[15px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-200"
               placeholder="John Doe"
               type="text"
               value={form.fullName}
               onChange={(e) => update("fullName", e.target.value)}
+              autoComplete="name"
+              aria-invalid={!!errors.fullName}
+              aria-describedby={errors.fullName ? "fullName-error" : undefined}
             />
             {errors.fullName && (
-              <p className="text-error text-label-sm mt-1">{errors.fullName}</p>
+              <p id="fullName-error" className="text-error text-[13px] mt-1" role="alert">
+                {errors.fullName}
+              </p>
             )}
           </div>
           <div className="space-y-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">
-              PHONE NUMBER
+            <label className="text-[13px] font-semibold uppercase tracking-wider text-on-surface-variant" htmlFor="phone">
+              Phone Number
             </label>
             <input
-              className="w-full bg-[#111111] border border-white/10 rounded-lg py-3 px-4 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
+              id="phone"
+              className="w-full bg-background border border-outline-variant rounded-lg py-3 px-4 text-on-surface text-[15px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-200"
               placeholder="+251 ..."
               type="tel"
               value={form.phone}
               onChange={(e) => update("phone", e.target.value)}
+              autoComplete="tel"
+              aria-invalid={!!errors.phone}
+              aria-describedby={errors.phone ? "phone-error" : undefined}
             />
-            {errors.phone && <p className="text-error text-label-sm mt-1">{errors.phone}</p>}
+            {errors.phone && (
+              <p id="phone-error" className="text-error text-[13px] mt-1" role="alert">
+                {errors.phone}
+              </p>
+            )}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">
-              SELECT COURSE
+            <label className="text-[13px] font-semibold uppercase tracking-wider text-on-surface-variant" htmlFor="course">
+              Select Course
             </label>
             <select
-              className="w-full bg-[#111111] border border-white/10 rounded-lg py-3 px-4 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all appearance-none"
+              id="course"
+              className="w-full bg-background border border-outline-variant rounded-lg py-3 px-4 text-on-surface text-[15px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-200 appearance-none"
               value={form.course}
               onChange={(e) => update("course", e.target.value)}
+              autoComplete="off"
             >
               {courses.map((c) => (
                 <option key={c}>{c}</option>
@@ -115,27 +138,33 @@ export default function EnrollmentForm() {
             </select>
           </div>
           <div className="space-y-2">
-            <label className="font-label-md text-label-md text-on-surface-variant">
-              PREFERRED START DATE
+            <label className="text-[13px] font-semibold uppercase tracking-wider text-on-surface-variant" htmlFor="startDate">
+              Preferred Start Date
             </label>
             <input
-              className="w-full bg-[#111111] border border-white/10 rounded-lg py-3 px-4 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
+              id="startDate"
+              className="w-full bg-background border border-outline-variant rounded-lg py-3 px-4 text-on-surface text-[15px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-200"
               type="date"
               value={form.startDate}
               onChange={(e) => update("startDate", e.target.value)}
+              aria-invalid={!!errors.startDate}
+              aria-describedby={errors.startDate ? "startDate-error" : undefined}
             />
             {errors.startDate && (
-              <p className="text-error text-label-sm mt-1">{errors.startDate}</p>
+              <p id="startDate-error" className="text-error text-[13px] mt-1" role="alert">
+                {errors.startDate}
+              </p>
             )}
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="font-label-md text-label-md text-on-surface-variant">
-            YOUR MESSAGE
+          <label className="text-[13px] font-semibold uppercase tracking-wider text-on-surface-variant" htmlFor="message">
+            Your Message
           </label>
           <textarea
-            className="w-full bg-[#111111] border border-white/10 rounded-lg py-3 px-4 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
+            id="message"
+            className="w-full bg-background border border-outline-variant rounded-lg py-3 px-4 text-on-surface text-[15px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-200"
             placeholder="Tell us about your goals..."
             rows={4}
             value={form.message}
@@ -144,10 +173,10 @@ export default function EnrollmentForm() {
         </div>
 
         <motion.button
-          className="w-full bg-primary-container text-on-primary font-bold py-4 rounded-lg hover:scale-[1.01] active:scale-[0.98] transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 disabled:opacity-60"
+          className="w-full bg-primary text-on-primary font-bold py-4 rounded-lg transition-all duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.97] flex items-center justify-center gap-2 disabled:opacity-60"
           type="submit"
           disabled={status === "loading"}
-          whileTap={{ scale: 0.98 }}
+          whileTap={{ scale: 0.97 }}
         >
           {status === "loading" ? (
             <>

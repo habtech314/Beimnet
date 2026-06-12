@@ -12,11 +12,11 @@ interface InstructorCardProps {
 export default function InstructorCard({ instructor, index }: InstructorCardProps) {
   return (
     <motion.div
-      className="glass-card rounded-xl overflow-hidden group transition-all duration-500 hover:shadow-[0_0_15px_rgba(127,212,32,0.4)] hover:border-primary/60"
-      initial={{ opacity: 0, y: 30 }}
+      className="bg-surface-container rounded-xl overflow-hidden group transition-all duration-300 hover:bg-surface-container-high border border-outline-variant"
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+      transition={{ delay: index * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
     >
       <div className="aspect-[3/4] overflow-hidden">
         <Image
@@ -24,7 +24,7 @@ export default function InstructorCard({ instructor, index }: InstructorCardProp
           alt={instructor.name}
           width={300}
           height={400}
-          className="w-full h-full object-cover saturate-0 group-hover:saturate-100 transition-all duration-500"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="p-6">
@@ -42,6 +42,7 @@ export default function InstructorCard({ instructor, index }: InstructorCardProp
             <span
               key={s.icon}
               className={`material-symbols-outlined ${s.color} cursor-pointer hover:scale-110 transition-transform`}
+              aria-hidden="true"
             >
               {s.icon}
             </span>

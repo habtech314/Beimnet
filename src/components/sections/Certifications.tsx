@@ -3,29 +3,51 @@
 import { motion } from "framer-motion";
 
 const certs = [
-  { icon: "workspace_premium", label: "Elite Artist Guild" },
-  { icon: "military_tech", label: "Global Beauty Cert" },
-  { icon: "verified_user", label: "Cosmetic Pro Assc." },
-  { icon: "new_releases", label: "Industry Innovator" },
+  { number: "01", label: "Elite Artist Guild" },
+  { number: "02", label: "Global Beauty Cert" },
+  { number: "03", label: "Cosmetic Pro Assc." },
+  { number: "04", label: "Industry Innovator" },
 ];
 
 export default function Certifications() {
   return (
-    <section className="py-12 border-y border-outline-variant bg-surface-container-lowest/50">
-      <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
-        <motion.div
-          className="flex items-center justify-between gap-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all flex-wrap md:flex-nowrap"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 0.4, x: 0 }}
-          viewport={{ once: true }}
-        >
-          {certs.map((c) => (
-            <div key={c.label} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-4xl">{c.icon}</span>
-              <span className="font-bold tracking-widest uppercase">{c.label}</span>
-            </div>
-          ))}
-        </motion.div>
+    <section className="py-16 md:py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <motion.div
+        className="mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <p className="text-[11px] uppercase tracking-[0.2em] text-primary mb-5 font-semibold">
+          Accredited
+        </p>
+        <h2 className="font-serif text-[24px] md:text-[36px] tracking-tight">
+          Certifications & Partnerships
+        </h2>
+      </motion.div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant">
+        {certs.map((c, i) => (
+          <motion.div
+            key={c.label}
+            className="bg-background p-8 md:p-10"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="text-[11px] text-primary font-semibold tracking-widest">
+              {c.number}
+            </span>
+            <h3 className="text-[18px] font-semibold mt-4 mb-3 text-on-surface tracking-tight">
+              {c.label}
+            </h3>
+            <p className="text-[15px] text-on-surface-variant leading-[1.6]">
+              Accredited certification recognized by major beauty industry bodies across East Africa.
+            </p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
